@@ -1,0 +1,50 @@
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Guest Book</title>
+        <script src="js/script.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h2>Guest Book</h2>
+            </header>
+
+            <!-- 방명록 작성 -->
+            <section class="guestbook-form">
+                <h3>방명록 작성</h3>
+                <form id="guestbookForm">
+                    <div class="form-group">
+                        <label for="name">이름</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">message</label>
+                        <textarea id="message" name="message" rows="3" required></textarea>
+                    </div>
+                    <button type="submit">submit</button>
+                </form>
+            </section>
+
+            <!-- 방명록 목록 -->
+            <section class="guestbook-entries">
+                <h3>방명록 목록</h3>
+                <div id="entriesList"> 
+                    <!-- 방명록 불러오는 부분 -->
+                    <p class="loading">loading guestbook...</p>
+                </div>
+            </section>
+
+            <!-- 목록 테스트용 -->
+            <section class="network-info">
+                <h3>네트워크 정보</h3>
+                <div id="networkInfo">
+                    <p>클라이언트 IP: <span id="clientIp">확인 중...</span></p>
+                    <p>서버 응답 시간: <span id="responseTime">-</span> ms</p>
+                </div>
+            </section>
+
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.second.guestbook.mapper.GuestbookMapper">
+    <select id="findAll" resultType="GuestEntry">
+        SELECT id, name, message, ip_address AS ipAddress, created_at AS createdAt
+        FROM entries
+        ORDER BY created_at DESC
+    </select>
+
+    <select id="findById" resultType="GuestEntry" parameterType="Long">
+        SELECT id, name, message, ip_address AS ipAddress, created_at AS createdAt
+        FROM entries
+        WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="GuestEntry" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO entries (name, message, ip_address)
+        VALUES (#{name}, #{message}, #{ipAddress})
+    </insert>
+
+    <update id="update" parameterType="GuestEntry">
+        UPDATE entries
+        SET name = #{name}, message = #{message}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM entries WHERE id = #{id}
+    </delete>
+</mapper>
